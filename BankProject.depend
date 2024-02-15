@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1707993309 source:e:\iti_assuit\iti\ds\assignments\bankproject\main.cpp
+	<iostream>
+	<queue>
+	<Customer.h>
+	<Teller.h>
+	<Bank.h>
+
+1707947357 e:\iti_assuit\iti\ds\assignments\bankproject\include\customer.h
+
+1707992763 e:\iti_assuit\iti\ds\assignments\bankproject\include\teller.h
+
+1707997245 e:\iti_assuit\iti\ds\assignments\bankproject\include\bank.h
+
