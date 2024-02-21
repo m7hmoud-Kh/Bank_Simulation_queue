@@ -9,6 +9,7 @@ class Bank
         Teller tellerArray[number_of_tellers];
         int totalCustomer = 0;
         int totalServiceTime = 0;
+        float totalWaitingTime = 0;
 
         Bank() {
             for(int i=0; i<number_of_tellers;i++){
@@ -56,11 +57,11 @@ class Bank
                             custom.setWaitingTime(0);
 
                         }
+                        this->totalWaitingTime += custom.getWaitingTime();
 
                         tellerArray[smallestIndex].setAvailable(true);
                         customerPq.pop();
                         customerPq.push(Customer(custom.getName(),custom.getArrivalTime(),custom.getSeriveTime(),custom.getPriority(),custom.getWaitingTime()));
-
                     }
 
 
@@ -107,8 +108,9 @@ class Bank
 
 
             cout << "==========================================" << endl
-                 << "Total Customer Serviced In Bank: " << this->totalCustomer
-                 << " Total Time Serviced In Bank: " << this->totalServiceTime
+                 << "Total Customer Serviced In Bank: " << this->totalCustomer << endl
+                 << " Total Time Serviced In Bank: " << this->totalServiceTime << endl
+                 << " Average Waiting Time in bank: " << this->totalWaitingTime / this->totalCustomer
                  << endl << "========================================================="
                  << endl;
         }
@@ -120,8 +122,9 @@ class Bank
                 percentageCustomerService = ( (float)tellerArray[i].getTotalCustomerSerive() / this->totalCustomer) * 100;
                 cout << "Name: " << "Teller" << tellerArray[i].getId()
                 << " Id: " << tellerArray[i].getId()
-                << " Total Customer Serivce: " << tellerArray[i].getTotalCustomerSerive() << " In Percentage: " << percentageService << "% "
-                << " Total Time Serivced: " << tellerArray[i].getTotalTimeService() << " In Percentage : " << percentageCustomerService << "% "
+                << " Total Customer Serivce: " << tellerArray[i].getTotalCustomerSerive() << " In Percentage: " << percentageCustomerService << "% "
+                << " Total Time Serivced: " << tellerArray[i].getTotalTimeService() << " In Percentage : " << percentageService << "% "
+                << " Time to Finish Work: " << tellerArray[i].getFinishWork()
                 << endl << "===================================================================" << endl;
 
                 percentageCustomerService = 0;
